@@ -1,0 +1,47 @@
+body {
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+img {
+    transform: scale(0.90);
+    outline: 5px solid orange;
+    height: 400px;
+}
+
+.card-group {
+    width: 100%;
+} 
+
+.card {  
+    background-color: transparent!important;
+    flex: none !important;
+    border-radius: 40px;
+}
+
+.input-section{
+    display: flex;
+    justify-content: center; 
+    padding-top: 20px;
+}
+
+button {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    width: 300px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+h4, p, h5 { 
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 700; 
+} 
