@@ -1,23 +1,26 @@
 const input = document.querySelector("#input");
-const search = document.querySelector("#search");
+const form = document.querySelector(".input-section form");
 const clear = document.querySelector("#clear");
+
+const apiKey = "c2b94417d0c1c477f0618f5c852411f5";
 
 let cities = [];
 
 const cardGroup = document.querySelector(".card-group");
 
 async function getWeather() {
-    let name = input.value;
+    let name = input.value.toLowerCase();
     if (cities.includes(name)) {
-        window.alert("Already Displayed");
+        window.alert(`${name.toUpperCase()} is Already Displayed`);
+        input.value = "";
         return;
     }
-    let apiKey = "c2b94417d0c1c477f0618f5c852411f5";
     let api = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`
     );
     if (!api.ok) {
         window.alert("City does not exist!");
+        input.value = "";
         return;
     }
     let city = await api.json();
@@ -64,7 +67,10 @@ function clearWeather() {
     input.value = "";
 }
 
-search.addEventListener("click", getWeather);
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    getWeather();
+});
 
 clear.addEventListener("click", clearWeather);
 
